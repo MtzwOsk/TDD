@@ -48,11 +48,11 @@ class ItemModelTest(TestCase):
         second_item.text = 'Item the second'
         second_item.save()
 
-        seved_items = Item.objects.all()
+        seved_items = (Item.objects.all())
         self.assertEqual(seved_items.count(), 2)
 
         first_saved_item = seved_items[0]
         second_saved_item = seved_items[1]
 
-        self.assertEqual(first_saved_item, 'The first (ever) list item')
-        self.assertEqual(second_saved_item, 'Item the second')
+        self.assertEqual(str(first_saved_item), 'The first (ever) list item')
+        self.assertEqual(str(second_saved_item), 'Item the second')
